@@ -33,7 +33,7 @@ func main() {
 	defer cancel()
 
 	// Вызов горутины для отслеживания системных сигналов на прекращение работы программы.
-	go chanSys(c, ctx, cancel)
+	go chanSys(ctx, cancel)
 
 	// Создание заданного количества воркеров с увеличением счётчика процессов на один при каждом создании.
 	for i := 0; i < k; i++ {
@@ -92,7 +92,7 @@ func worker(c chan int, i int, wg *sync.WaitGroup, ctx context.Context) {
 // Функция отслеживающая системный канал, в который поступают сигналы из вне.
 // Функция реагирует на сигнал завершения работы программы и отменяет контекст,
 // что передаётся в другие функции, которые следят за контекстом.
-func chanSys(c chan int, ctx context.Context, cancel context.CancelFunc) {
+func chanSys(ctx context.Context, cancel context.CancelFunc) {
 	signalCh := make(chan os.Signal, 1)
 	signal.Notify(signalCh, os.Interrupt, syscall.SIGTERM)
 	<-signalCh
