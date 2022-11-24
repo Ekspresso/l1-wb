@@ -6,6 +6,7 @@ func main() {
 	a := 1
 	b := 100
 	fmt.Println(a, " ", b)
+	// Меняем местами переменные a и b
 	a, b = b, a
 	fmt.Println(a, " ", b)
 }
