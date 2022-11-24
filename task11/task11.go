@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	// Создание крат для хранения множеств
+	// Создание карт для хранения множеств
 	m1 := make(map[int]bool)
 	m2 := make(map[int]bool)
 	interect := make(map[int]bool)
