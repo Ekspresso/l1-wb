@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// Функция заполняет множество строками из слайса
 func main() {
 	var strings = []string{"cat", "cat", "dog", "cat", "tree"}
 	set := make(map[string]bool)
