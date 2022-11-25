@@ -10,6 +10,8 @@ type counter struct {
 	counter int
 }
 
+// Функция для инкрементирования счётчика. Она использует мьютекс
+// для корректного доступа к значению счётика несколькими горутинами.
 func (c *counter) Increment() {
 	c.Lock()
 	defer c.Unlock()
