@@ -1,3 +1,5 @@
+// Реализовать собственную функцию sleep.
+
 package main
 
 import (

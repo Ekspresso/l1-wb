@@ -1,3 +1,5 @@
+// Удалить i-ый элемент из слайса.
+
 package main
 
 import "fmt"
