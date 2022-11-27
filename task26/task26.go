@@ -8,12 +8,13 @@
 
 package main
 
-import "fmt"
-
-// 32
+import (
+	"fmt"
+	// "unicode"
+)
 
 func main() {
-	s := ";e mp[😂⌘😂"
+	s := ";e mp[😂⌘"
 	fmt.Println(checkUniqStr(s))
 }
 
@@ -43,3 +44,16 @@ func checkUniqStr(str string) bool {
 	}
 	return true
 }
+
+// Реализация функци проверки с использованием пакета unicode.
+// func checkUniqStr(str string) bool {
+// 	m := make(map[rune]bool)
+// 	for _, symb := range str {
+// 		symb = unicode.ToLower(symb)
+// 		if m[symb] {
+// 			return false
+// 		}
+// 		m[symb] = true
+// 	}
+// 	return true
+// }
