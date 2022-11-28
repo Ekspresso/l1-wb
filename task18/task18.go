@@ -9,15 +9,15 @@ import (
 )
 
 type counter struct {
-	sync.Mutex
+	mu      sync.Mutex
 	counter int
 }
 
 // Функция для инкрементирования счётчика. Она использует мьютекс
 // для корректного доступа к значению счётика несколькими горутинами.
 func (c *counter) Increment() {
-	c.Lock()
-	defer c.Unlock()
+	c.mu.Lock()
+	defer c.mu.Unlock()
 	c.counter++
 }
 

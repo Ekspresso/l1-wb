@@ -36,6 +36,10 @@ func main() {
 		res.Add(a, b)
 		fmt.Println(res)
 	case "/":
+		if b.Sign() == 0 {
+			fmt.Println("Error: b is 0")
+			return
+		}
 		res.Div(a, b)
 		fmt.Println(res)
 	case "-":

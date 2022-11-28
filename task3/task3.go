@@ -25,8 +25,9 @@ func main() {
 // Функция принимает по указателю "sum" и прибавляет к её значению квадрат переданного чила k
 func sumSq(sum *int, k int, mutex *sync.Mutex, wg *sync.WaitGroup) {
 	defer wg.Done()
+	k = k * k
 	mutex.Lock() // Блокировка мьютекса для работы с общей переменной для записи "sum"
-	*sum += k * k
+	*sum += k
 	mutex.Unlock() // Разблокировка мьютекса
 }
 
@@ -41,8 +42,9 @@ func sumSq(sum *int, k int, mutex *sync.Mutex, wg *sync.WaitGroup) {
 // 		wg.Add(1)
 // 		go func(i int) {
 // 			defer wg.Done()
+// 			k := arr[i] * arr[i]
 // 			mutex.Lock()
-// 			sum += arr[i] * arr[i]
+// 			sum += k
 // 			mutex.Unlock()
 // 		}(i)
 // 	}

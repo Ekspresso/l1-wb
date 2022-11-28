@@ -11,4 +11,12 @@ func main() {
 	// Меняем местами переменные a и b
 	a, b = b, a
 	fmt.Println(a, " ", b)
+	a = a ^ b
+	b = a ^ b // a^b^b = a
+	a = a ^ b // a^a^b = b
+	fmt.Println(a, " ", b)
+	a = a + b
+	b = a - b
+	a = a - b
+	fmt.Println(a, " ", b)
 }
